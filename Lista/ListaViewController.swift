@@ -21,11 +21,30 @@ class ListaViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 100
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListaItem", for: IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListaItem", for: indexPath)
+        
+        let label = cell.viewWithTag(1001) as! UILabel
+        
+        if indexPath.row % 5 == 0 {
+            label.text = "Walk the Dog"
+        }
+        else if indexPath.row % 5 == 1 {
+            label.text = "Brush My Teeth"
+        }
+        else if indexPath.row % 5 == 2 {
+            label.text = "Learn Programming"
+        }
+        else if indexPath.row % 5 == 3 {
+            label.text = "Soccer Practice"
+        }
+        else if indexPath.row % 5 == 4 {
+            label.text = "Call GF"
+        }
+        
         return cell
     }
 
